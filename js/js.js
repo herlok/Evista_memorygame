@@ -45,6 +45,11 @@ function cardGenerate()
     let flippedcardsarray = [];
     let firstclicked = "";
     let secondclicked = "";
+    let imagefirst = "";
+    let imagesecond = "";
+    let score = 0;
+	let back_viewFirstclicked = "";
+	let back_viewSecondclicked = "";
 
     for (let i = 0; i <= selectValue-1; i++) 
     {
@@ -55,8 +60,8 @@ function cardGenerate()
         card.innerHTML = "<div class='view back_view'>" + "<img src='img/img-" + imageArray[i] + ".png'>" + "</div>" + "<div class='view front_view' id='front_view_" + i + "'>" + "<span class='material-icons'>question_mark</span>" + "</div>";            
         container.appendChild(card);
 
-        let back_view = card.getElementsByTagName('div')[0];
         let front_view = card.getElementsByTagName('div')[1];
+        
 
 
         card.addEventListener('click', function cardflip() {
@@ -66,28 +71,52 @@ function cardGenerate()
                 flippedcards++;
                 flippedcardsarray.push(front_view.id);
                 if(firstclicked)
-                secondclicked = document.getElementById('front_view_' + i);
-                else
-                firstclicked = document.getElementById('front_view_' + i);
-
-                console.log(firstclicked.id);
-                
-
-                if(flippedcards == 2)
                 {
-                    //console.log(flippedcardsarray[0]);
-                    //console.log(flippedcardsarray[1]);
-
-                    console.log("megnyomtam ketszer");
-                    setTimeout(() => {
-                        firstclicked.style.display = "flex";
-                        secondclicked.style.display = "flex";
-                        flippedcards = 0;
-                        console.log("eltelt 1mp");
-                        firstclicked = "";
-                        secondclicked = "";
-                    }, "1000")
+                    imagesecond = card.getElementsByTagName('img')[0].src;
+                    secondclicked = document.getElementById('front_view_' + i);
+					back_viewSecondclicked = card.getElementsByTagName('div')[0];
                 }
+                else
+                {
+                    imagefirst = card.getElementsByTagName('img')[0].src;
+                    firstclicked = document.getElementById('front_view_' + i);
+					back_viewFirstclicked = card.getElementsByTagName('div')[0];
+                }
+
+                console.log(imagefirst);
+                console.log(imagesecond);
+                console.log(flippedcards);
+
+                
+				if(flippedcards == 2)
+				{
+					if(imagefirst != imagesecond)
+					{
+						setTimeout(() => {
+							firstclicked.style.display = "flex";
+							secondclicked.style.display = "flex";
+							flippedcards = 0;
+							console.log("eltelt 1mp");
+							firstclicked = "";
+							secondclicked = "";
+						}, "1000")
+					}
+					else
+					{
+						console.log("stimmel a ketto");
+						back_viewFirstclicked.style.opacity = "0.5";
+						back_viewSecondclicked.style.opacity = "0.5";
+						firstclicked = "";
+						secondclicked = "";
+					}
+					
+					flippedcards = 0;
+
+				}
+				
+                
+                
+                    
             }
         })
         
