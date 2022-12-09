@@ -25,14 +25,11 @@
 {
     display: table-cell;
     vertical-align: middle;
+    text-align: center;
 }
 .child img
 {
     top: 3px;
-}
-.child form
-{
-    margin-left: 500px;
 }
 a
 {
@@ -148,5 +145,24 @@ form
 }
 .card .back_view img
 {
-    max-width: 45px;
+    max-width: 60px;
+}
+#restartBtn
+{
+    position: absolute;
+    top: 15%;
+    right: 37%;
+    font-weight: bold;
+    padding: 10px;
+    background: transparent;
+    border-radius: 5px;
+    font-size: 22px;
+}
+#score
+{
+    position: absolute;
+    top: 16.5%;
+    right: 58%;
+    font-weight: bold;
+    font-size: 22px;
 }

@@ -15,20 +15,20 @@
                 </a>
             </div>
             
-            <div class="child">
+            <div class="child" style="width: 100%;">
                 <form action="#">
                     <label for="deckSize" class="deckSizeLabel">Deck Size:</label>
-                        <select name="deckSize" class="deckSize">
-                            <option value="6">6</option>
-                            <option value="8">8</option>
-                            <option value="10">10</option>
-                            <option value="12">12</option>
-                            <option value="14">14</option>
-                            <option value="16">16</option>
-                            <option value="18">18</option>
-                            <option value="20">20</option>
-                        </select>
-                        <input type="submit" value="START NEW GAME" class="newgameButton" onclick="cardGenerate()"></input>
+                    <select name="deckSize" class="deckSize">
+                        <option value="6">6</option>
+                        <option value="8">8</option>
+                        <option value="10">10</option>
+                        <option value="12">12</option>
+                        <option value="14">14</option>
+                        <option value="16">16</option>
+                        <option value="18">18</option>
+                        <option value="20">20</option>
+                    </select>
+                    <input id="startnewgamebtn" type="submit" value="START NEW GAME" class="newgameButton"></input>
                 </form>
             </div>
             
@@ -37,8 +37,13 @@
 
 
         <div class="container">
+        <div>
+        <button id="restartBtn">Restart</button>
+        <span id="score">
+            score: 0
+        </span>
+        </div>
             
-        <button onclick="cardGenerate()">asd</button>
             <div class="wrapper">
                 <ul class="cards">
                 </ul>
